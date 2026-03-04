@@ -1,20 +1,13 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function Home() {
+export default function HomePage() {
   return (
     <div>
-      <h1 className="text-4xl font-bold text-green-500 bg-slate-600">TITLE</h1>
+      <h1 className="text-4xl font-bold text-red-500 bg-slate-600">HOME</h1>
+
+      <Link href="/users" className="text-green-950">
+        Page users
+      </Link>
     </div>
   );
 }
