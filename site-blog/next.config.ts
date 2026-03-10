@@ -1,12 +1,10 @@
 import type { NextConfig } from "next";
+import { withContentlayer } from "next-contentlayer";
 
 const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
-  turbopack: {
-    // ensure Next.js uses the correct workspace root
-    root: __dirname, // or './' since this file lives in the project directory
-  },
+  turbopack: {}, // 👈 necessário para Next 16
 };
 
-export default nextConfig;
+export default withContentlayer(nextConfig);
