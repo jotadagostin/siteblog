@@ -10,7 +10,7 @@ type PostCardProps = {
   slug: string;
   title: string;
   description: string;
-  image: string;
+  image?: string;
   date: string;
   author: Author;
 };
@@ -36,13 +36,16 @@ export const PostCard = ({
           <div className="absolute top-0 right-0 px-3 py-1 bg-gray-600 backdrop-blur-sm rounded-bl-[10px]">
             <span className="text-gray-300 text-body-xs">{date}</span>
           </div>
-          <Image
-            src={image}
-            alt=""
-            width={288}
-            height={144}
-            className="w-full h-40 object-cover object-center rounded-[8px]"
-          />
+
+          {image && (
+            <Image
+              src={image.trimEnd()}
+              alt={title}
+              width={288}
+              height={144}
+              className="w-full h-40 object-cover object-center rounded-[8px]"
+            />
+          )}
         </div>
 
         {/* POST INFO */}
