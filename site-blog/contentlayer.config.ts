@@ -3,7 +3,7 @@ import {
   defineDocumentType,
   defineNestedType,
   makeSource,
-} from "contentlayer/source-files";
+} from "contentlayer2/source-files";
 
 const Author = defineNestedType(() => ({
   name: "Author",
