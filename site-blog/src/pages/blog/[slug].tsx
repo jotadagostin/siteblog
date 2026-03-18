@@ -8,6 +8,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
+import { useShare } from "@/hooks";
 import { allPosts } from "contentlayer/generated";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,18 +16,22 @@ import { useRouter } from "next/router";
 
 export default function PostPage() {
   const router = useRouter();
-
-  if (!router.isReady) return null;
-
   const slug = router.query.slug as string;
-
-  if (typeof slug !== "string") return null;
 
   const post = allPosts.find(
     (post) => post.slug.toLowerCase() === slug.toLowerCase(),
   );
 
   const publisheDate = new Date(post?.date ?? "").toLocaleDateString("pt-br");
+  const postUrl = `https://site.set/blog/${slug}`;
+
+  const { shareButtons } = useShare({
+    url: postUrl,
+    title: post?.title,
+    text: post?.description,
+  });
+
+  if (!router.isReady || typeof slug !== "string") return null;
 
   return (
     <main className="mt-32 text-gray-100">
@@ -81,20 +86,19 @@ export default function PostPage() {
           </article>
 
           <aside className="space-y-6">
-            <div className="rounded-lg bg-gray-700 p-4 md:p-6">
+            <div className="rounded-lg bg-gray-700 px-4 md:p-6">
               <h2 className="mb-4 text-heading-xs text-gray-100">Share</h2>
               <div className="space-y-3">
-                {[
-                  { key: "1", providerName: "Linkedin" },
-                  { key: "2", providerName: "Facebook" },
-                ].map((provider) => (
+                {shareButtons.map((provider) => (
                   <Button
-                    key={provider.key}
+                    key={provider.provider}
+                    onClick={() => provider.action()}
                     variant="outline"
                     radius="default"
                     className="w-full justify-start gap-2"
                   >
-                    {provider.providerName}
+                    {provider.icon}
+                    {provider.name}
                   </Button>
                 ))}
               </div>
