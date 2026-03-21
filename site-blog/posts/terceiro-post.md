@@ -1,6 +1,6 @@
 ---
 title: How to attract consumers
-description: Attracting consumers to your online store is one of the keys to success in e-commerce. To win new customers, it's essential to adopt effective marketing strategies and create a shopping experience that makes them want to return. Here are some tips to increase traffic and conversion rates in your store
+description: Attracting consumers to your online store is one of the keys to success in e-commerce. To win new customers, it's essential to adopt effective marketing strategies and create a shopping experience that makes them want to return. Here are some tips to increase traffic and conversion rates in your store.
 date: 2024-12-20 10:20:00
 image: /assets/terceiro-post.png
 author:
