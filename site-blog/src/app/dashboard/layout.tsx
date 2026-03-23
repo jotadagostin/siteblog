@@ -11,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="text-red-300 min-h-screen min-w-full bg-gray-20">
+    <div className="text-red-300 min-h-screen min-w-full bg-gray-20 ">
       {children}
     </div>
   );

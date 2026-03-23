@@ -1,3 +1,7 @@
 export default function HomePage() {
-  return <h2>DASHBOARD</h2>;
+  return (
+    <div className="bg-gray-400">
+      <h2>DASHBOARD</h2>
+    </div>
+  );
 }
