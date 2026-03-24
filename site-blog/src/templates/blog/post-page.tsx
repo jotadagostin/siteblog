@@ -1,3 +1,4 @@
+"use client";
 import { Avatar } from "@/components/avatar";
 import { MarkDown } from "@/components/markdown";
 import {
